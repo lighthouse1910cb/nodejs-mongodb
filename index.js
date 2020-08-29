@@ -15,7 +15,7 @@ mongoose
   })
   .then(() => {
     console.log('connected');
-    app.listen(9999);
+    app.listen(process.env.PORT || 9999);
   })
   .catch((err) => console.error(err));
 
