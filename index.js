@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const app = express();
+const cors = require('cors');
 
 const dbURI =
   'mongodb+srv://dungnguyenh5:Dung19@cb@cluster0.lhrs8.mongodb.net/Nasher?retryWrites=true&w=majority';
@@ -20,6 +21,7 @@ mongoose
   .catch((err) => console.error(err));
 
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
 app.use(bodyParser.json());

@@ -52,10 +52,10 @@ const register_post = async (req, res) => {
       httpOnly: true,
       maxAge: tokenExpiredTime * 1000,
     });
-    res.status(201).json({ user: user._id });
+    res.status(201).json({ user: user._id, isSuccess: true });
   } catch (error) {
     const errors = handleErrors(error);
-    res.status(400).json({ errors });
+    res.status(400).json({ errors, isSuccess: false });
   }
 };
 
@@ -69,10 +69,10 @@ const login_post = async (req, res) => {
         httpOnly: true,
         maxAge: tokenExpiredTime * 1000,
       });
-      res.status(200).json({ user: user._id });
+      res.status(200).json({ user: user._id, isSuccess: true });
     } catch (error) {
       const errors = handleErrors(error);
-      res.status(400).json({ errors });
+      res.status(400).json({ errors, isSuccess: false });
     }
   };
 
